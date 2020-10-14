@@ -1,11 +1,21 @@
 <template>
   <div id="profile">
-
+    <p>{{ getCurrentUserData.name }}</p>
+    <br>
+    {{getCurrentUserData.address}}
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  
+  data(){
+    return{
+    }
+  },
+  computed: {
+    ...mapGetters(['getCurrentUserData'])
+  }
 }
 </script>
 <style scoped>

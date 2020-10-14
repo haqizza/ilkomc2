@@ -37,7 +37,7 @@ export default {
   #topbar{
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     background-color: white;
     box-shadow: 4px 0px 8px 5px rgb(0,0,0,0.2);

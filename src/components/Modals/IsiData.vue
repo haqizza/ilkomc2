@@ -5,14 +5,12 @@
         <div v-show="show" @click="$emit('close')" class="modal-mask">
           <div @click.stop class="modal-wrapper">
             <div class="input-data">
-              <form @submit="addData" class="form-wrapper">
+              <form @submit="addUser" class="form-wrapper">
                 <div class="input-group mb-3">
                   <input 
                   type="text" 
                   class="form-control" 
                   placeholder="Nama Lengkap" 
-                  aria-label="Nama Lengkap"
-                  aria-describedby="basic-addon1"
                   v-model="nama"
                   >
                 </div>
@@ -21,8 +19,6 @@
                   type="text" 
                   class="form-control" 
                   placeholder="Alamat" 
-                  aria-label="Alamat"
-                  aria-describedby="basic-addon1"
                   v-model="alamat"
                   >
                 </div>
@@ -30,19 +26,15 @@
                 <input 
                   type="text" 
                   class="form-control" 
-                  placeholder="Email" 
-                  aria-label="Email"
-                  aria-describedby="basic-addon1"
+                  placeholder="Email"
                   v-model="email"
-                  >
+                >
                 </div>
                 <div class="input-group mb-3">
                 <input 
                   type="telp" 
                   class="form-control" 
                   placeholder="Nomor Telepon" 
-                  aria-label="Nomor Telepon"
-                  aria-describedby="basic-addon1"
                   v-model="telp"
                   >
                 </div>
@@ -51,8 +43,6 @@
                   type="text" 
                   class="form-control" 
                   placeholder="Website" 
-                  aria-label="Website"
-                  aria-describedby="basic-addon1"
                   v-model="web"
                   >
                 </div>
@@ -69,7 +59,7 @@
   </div>
 </template>
 <script>
-import {  } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   data(){
@@ -87,9 +77,7 @@ export default {
     }
   },
   methods: {
-    addData(){
-
-    }
+    ...mapActions(['addUser'])
   }
 }
 </script>
