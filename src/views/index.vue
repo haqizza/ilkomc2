@@ -1,36 +1,24 @@
 <template>
-  <div>
-    <TopBar></TopBar>
-    <div id="container">
-      <SideBar></SideBar>
-      <Profile></Profile>
-    </div>
-  </div>
+  <component :is="getCurrentScreen"></component>
 </template>
 
 <script>
-import TopBar from '@/views/TopBar'
-import Profile from '@/views/Profile'
-import SideBar from '@/views/SideBar'
+import { mapGetters } from 'vuex';
+import Front from '@/views/Front';
+import Dashboard from '@/views/Dashboard';
+// @ = src directory alias
 
 export default {
-  name: 'App',
-  components: {
-    SideBar,
-    TopBar,
-    Profile
+  components:{
+    Front,
+    Dashboard
+  },
+  computed:{
+    ...mapGetters(["getCurrentScreen"]),
   }
 }
 </script>
 
 <style>
-  #app {
-    font-family: 'Roboto';
-  }
-  #container{
-    min-height: 600px;
-    margin-top: 60px;
-    display: flex;
-    flex-direction: row;
-  }
+
 </style>

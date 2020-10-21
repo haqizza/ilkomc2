@@ -8,6 +8,7 @@ Vue.use(Vuex, axios);
 axios.defaults.baseURL = 'https://ilkomc2-19.my.id/api'
 
 const state = () => ({
+  currentScreen: "Front",
   userList: [],
   currentUserData: {}
 });
@@ -16,6 +17,7 @@ const getters = {
   getUserList: state => state.userList,
   getCurrentUserData: state => state.currentUserData,
   getCurrentUserId: state => state.currentUserData._id,
+  getCurrentScreen: state => state.currentScreen,
   // getCurrentUserName: state => state.currentUserData.name,
   // getCurrentUserProfession: state => state.currentUserData.profession,
   // getCurrentUserBirthday: state => state.currentUserData.birthday,
@@ -33,6 +35,9 @@ const getters = {
 const actions = {
   // addUser({commit}, input){
 
+  // },
+  // register({commit}, {username, password}){
+    
   // },
   changeCurrentUser({ commit }, input) {
     commit('SET_CURRENT_USER_DATA', input);

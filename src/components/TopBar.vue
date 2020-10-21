@@ -1,31 +1,42 @@
 <template>
   <div id="topbar">
     <div class="wrapper">
+      <a href="/">
       <img src="../assets/logo.png" onClick="getIsiData"/>
-      <div class="isi-data" @click="openModalIsiData">
-        <i class="far fa-plus-square"></i> Isi Data
+      </a>
+      
+      <div v-if="getCurrentScreen == 'Front'" class="isi-data" @click="openModalLogin">
+        Login
+      </div>
+
+      <div v-if="getCurrentScreen == 'Dashboard'" class="isi-data" @click="logout">
+        Logout
       </div>
     </div>
-    <ModalIsiData @close="showModalIsiData = false" :show.sync="showModalIsiData"></ModalIsiData>
+    <Login @close="showModalLogin = false" :show.sync="showModalLogin"></Login>
   </div>
 </template>
 <script>
-import ModalIsiData from '@/components/Modals/IsiData'
+import Login from '@/components/Modals/Login'
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
-    ModalIsiData
+    Login
   },
   data(){
     return{
-      showModalIsiData: false
+      showModalLogin: false
     }
   },
   methods:{
-    openModalIsiData(){
-      this.showModalIsiData = true;
-      console.log(this.showModalIsiData);
-    }
+    openModalLogin(){
+      this.showModalLogin = true;
+      console.log(this.showModalLogin);
+    },
+  },
+  computed:{
+    ...mapGetters(["getCurrentScreen"]),
   }
 }
 </script>
